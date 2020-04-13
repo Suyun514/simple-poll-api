@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
@@ -13,8 +16,12 @@ app.use(router.middleware());
 
 database.init();
 
-router.get('/', async (ctx) => {
-    ctx.body = 'Hello, world!';
+fs.readdirSync(path.join(__dirname, 'modules'))
+    .filter((file) => file.endsWith('.js'))
+    .forEach((file) => require(path.join(__dirname, 'modules', file)));
+
+router.get('/api/queryAll', async (ctx) => {
+    ctx.body = database.getPersons();
 });
 
 app.listen(process.argv[2] ? process.argv[2] : 80);

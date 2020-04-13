@@ -2,8 +2,8 @@
     "database": {
         "user": "postgres",
         "host": "localhost",
+        "password": "password",
         "port": 5432,
-        "database": "poll",
-        "password": "password"
+        "database": "poll"
     }
 }

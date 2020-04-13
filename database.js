@@ -9,8 +9,18 @@ const client = new Client({
     password: config.database.password
 });
 
-module.exports = {
-    async init() {
+client.connect();
 
+module.exports = {
+    async getPersons() {
+        return (await client.query('SELECT * FROM persons')).rows;
+    },
+
+    async init() {
+        try {
+            await this.getPersons();
+        } catch (e) {
+            await client.query('CREATE TABLE persons (id bigint, count bigint)');
+        }
     }
 };
