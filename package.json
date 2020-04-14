@@ -11,5 +11,8 @@
     "koa-router": "^8.0.8",
     "koa-static": "^5.0.0",
     "pg": "^8.0.2"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
 }

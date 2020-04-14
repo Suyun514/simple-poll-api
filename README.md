@@ -24,6 +24,12 @@ Create a database and user in PostgreSQL:
 CREATE DATABASE poll;
 ```
 
+# Run
+
+```plain
+$ yarn start
+```
+
 ## Usage
 
 `GET /api/queryAll`: Query the votes of all the persons.  
