@@ -6,6 +6,7 @@
   "author": "Suyun514 <suyun514@qq.com>",
   "license": "AGPL-3.0",
   "dependencies": {
+    "@koa/cors": "2",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^8.0.8",
