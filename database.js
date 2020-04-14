@@ -13,7 +13,7 @@ client.connect();
 
 module.exports = {
     async getPerson(id) {
-        return (await client.query(`SELECT * FROM persons WHERE id = ${id}`)).rows[0];
+        return (await client.query('SELECT * FROM persons WHERE id = $1', [id])).rows[0];
     },
 
     async getPersons() {
@@ -21,11 +21,11 @@ module.exports = {
     },
 
     async updateParson(id, count) {
-        return (await client.query(`UPDATE persons SET count = ${count} WHERE id = ${id}`));
+        return (await client.query('UPDATE persons SET count = $1 WHERE id = $2', [count, id]));
     },
 
     async getUser(uid) {
-        return (await client.query(`SELECT * FROM users WHERE uid = ${uid}`)).rows[0];
+        return (await client.query('SELECT * FROM users WHERE uid = $1', [uid])).rows[0];
     },
 
     async getUsers() {
@@ -33,7 +33,7 @@ module.exports = {
     },
 
     async updateUser(uid, id) {
-        return (await client.query(`UPDATE users SET count = ARRAY_APPEND(count, ${id}) WHERE uid = ${uid}`));
+        return (await client.query('UPDATE users SET count = ARRAY_APPEND(count, $1) WHERE uid = $2', [id, uid]));
     },
 
     async init() {
