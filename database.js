@@ -4,9 +4,9 @@ const config = require('./config.json');
 const client = new Client({
     user: config.database.user,
     host: config.database.host,
+    password: config.database.password,
     port: config.database.port,
-    database: config.database.database,
-    password: config.database.password
+    database: config.database.database
 });
 
 client.connect();
@@ -43,7 +43,7 @@ module.exports = {
                 throw new Error;
             }
         } catch (e) {
-            try { await client.query('DROP TABLE persons'); } catch(e) {}
+            try { await client.query('DROP TABLE persons'); } catch (e) { }
             await client.query('CREATE TABLE persons (id int, count int)');
 
             for (let i = 1; i <= config.persons; ++i) {
@@ -57,7 +57,7 @@ module.exports = {
                 throw new Error;
             }
         } catch (e) {
-            try { await client.query('DROP TABLE users'); } catch(e) {}
+            try { await client.query('DROP TABLE users'); } catch (e) { }
             await client.query('CREATE TABLE users (uid int, count int[])');
 
             for (let i = 1; i <= config.users; ++i) {

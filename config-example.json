@@ -1,7 +1,6 @@
 {
     "persons": 6,
     "users": 100,
-
     "database": {
         "user": "postgres",
         "host": "localhost",
@@ -9,6 +8,5 @@
         "port": 5432,
         "database": "poll"
     },
-
     "_comment": "Please edit this file ONLY before the first time you run it. If not, All the data would be DESTROYED!!!"
 }
