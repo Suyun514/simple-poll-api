@@ -40,7 +40,7 @@ module.exports = {
         try {
             let persons = await this.getPersons();
             if (persons.length != config.persons) {
-                throw new Error;
+                throw new Error();
             }
         } catch (e) {
             try { await client.query('DROP TABLE persons'); } catch (e) { }
