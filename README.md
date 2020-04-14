@@ -18,7 +18,7 @@ $ cp config-example.json config.json
 
 ## Database
 
-Create a database and user in PostgreSQL:
+Create a database in PostgreSQL:
 
 ```plain
 CREATE DATABASE poll;
